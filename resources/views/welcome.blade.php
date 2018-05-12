@@ -2,7 +2,16 @@
 
 @section('content')
 @if(Auth::check())
-<?php $user = Auth::user(); ?>
+<div class="row">
+    <aside class="col-md-4">
+        
+    </aside>
+    <div class="col-xs-8">
+        @if(count($microposts)>0)
+        @include('microposts.microposts',['microposts'=>$microposts])
+        @endif
+    </div>
+</div>
 {{$user->name}}
 @else
 <div class="center jumbotron">
